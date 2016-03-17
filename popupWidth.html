@@ -9,10 +9,15 @@
 //        var win = window.open("popup.html", "win", 'status=1,toolbar=1,scrollbars=1,width=500,height=500,location=1,menubar=1,directories=1,resizable=1');
         showModelessDialog("popup.html", "win", "dialogWidth=500,dialogHeight=500,resizable=yes,scrollbars=yes");
       }
+      
+      function mo() {
+        showModalDialog("popup.html", "win", "dialogWidth=500,dialogHeight=500,resizable=yes,scrollbars=yes");
+      }
     </script>
   </head>
 
   <body>
     <input type="button" value="window open" onclick="f()">
+    <input type="button" value="モーダレスダイアログ" onclick="mo()">
   </body>
 </html>
