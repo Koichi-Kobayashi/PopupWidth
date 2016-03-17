@@ -1,22 +1,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" width="300">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
-      
+      html {
+        width: 1000;
+      }
     </style>
+    <script>
+      // htmlタグにwidthを指定しても幅を上書きできなかったので、JSでサイズ変更する
+      function decideDialogSize() {
+        // 内容が占める幅、高さ
+        var scrollWidth = document.documentElement.scrollWidth;
+        var scrollHeight = document.documentElement.scrollHeight;
+        // 画面のサイズを内容に合わせる。
+        window.dialogWidth = scrollWidth + "px";
+        window.dialogHeight = scrollHeight + "px";
+        // 縦スクロールバーが出ていれば横幅を拡張するように試みる。
+        var yScrollSize = document.documentElement.scrollWidth - document.documentElement.clientWidth;
+        window.dialogWidth = scrollWidth + yScrollSize + "px";
+        // 横スクロールバーが出ていれば縦幅を拡張するように試みる。
+        var xScrollSize = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        window.dialogHeight = scrollHeight + xScrollSize + "px";
+        // 画面サイズがディスプレイを上回った時のために、表示位置を左上に固定する。
+        window.scroll(0, 0);
+      }
+    </script>
     <title>Untitled Document</title>
   </head>
-  <body width=500>
-    <div width=500>
-      ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-    </div>
-    </br></br></br></br></br></br></br></br></br></br>
-    </br></br></br></br></br></br></br></br></br></br>
-    </br></br></br></br></br></br></br></br></br></br>
-    </br></br></br></br></br></br></br></br></br></br>
-    </br></br></br></br></br></br></br></br></br></br>
-    </br></br></br></br></br></br></br></br></br></br>
-    </br></br></br></br></br></br></br></br></br></br>
+  <body onload="decideDialogSize()">
+    <table width="600px">
+      <tr><td>
+        <span>
+          ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+        </span>
+        </br></br></br></br></br></br></br></br></br></br>
+        </br></br></br></br></br></br></br></br></br></br>
+        </br></br></br></br></br></br></br></br></br></br>
+        </br></br></br></br></br></br></br></br></br></br>
+        </br></br></br></br></br></br></br></br></br></br>
+        </br></br></br></br></br></br></br></br></br></br>
+        </br></br></br></br></br></br></br></br></br></br>
+      </td></tr>
+    </table>
   </body>
 </html>
